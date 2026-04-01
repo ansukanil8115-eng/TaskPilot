@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # TaskPilot (Project & Task Management)
 
 Full-stack Project and Task Management web application.
@@ -100,3 +101,7 @@ Frontend runs at `http://localhost:5173/`.
 - `tasks due today`
 - `help`
 
+=======
+# TaskPilot
+TaskPilot is a Django-based project management web application that enables teams to manage tasks, assign roles, and communicate efficiently with features like chat, task tracking, and role-based access.
+>>>>>>> ec83826ae108a870181f052ffb91b23b8e652a00
