@@ -1,107 +1,71 @@
-<<<<<<< HEAD
-# TaskPilot (Project & Task Management)
+# TaskPilot – Project Management System
 
-Full-stack Project and Task Management web application.
+## Overview
 
-## Tech stack
+TaskPilot is a full-stack project management web application that helps teams manage tasks, assign roles, and communicate efficiently. It supports role-based access for Admin, Manager, and Intern.
 
-- Backend: Django + Django REST Framework
-- Auth: JWT (`djangorestframework-simplejwt`) with **role in token**
-- DB: PostgreSQL (with SQLite fallback if env not set)
-- Frontend: React + Bootstrap (Vite)
-- Chatbot: Rule-based (Django API) + chat history + PDF export (reportlab)
+---
 
-## Folder structure
+## Technologies Used
 
-- `backend/`: Django project
-- `frontend/`: React app
+* Python, Django, Django REST Framework
+* PostgreSQL
+* React.js / HTML, CSS, JavaScript
+* JWT Authentication
 
-## Quickstart (local)
+---
 
-### 1) Database (PostgreSQL)
+## Features
 
-Option A: run Postgres with Docker:
+* Role-based authentication (Admin, Manager, Intern)
+* Task creation, assignment, and tracking
+* Chat system with message history
+* Download chat history as PDF
+* Dark/Light mode toggle
+* Context awareness (last 5 messages)
 
-```bash
-docker compose up -d
-```
+---
 
-Option B: use your local Postgres installation and create a DB/user.
+## Setup Instructions
 
-### 2) Backend (Django)
+### 1. Clone Repository
 
-1. Copy env file:
+git clone https://github.com/ansukanil8115-eng/TaskPilot.git
+cd TaskPilot
 
-```bash
+---
+
+### 2. Backend Setup
+
 cd backend
-copy .env.example .env
-```
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
 
-2. Install deps and run migrations:
+---
 
-```bash
-cd backend
-py -m venv .venv
-.\.venv\Scripts\python -m pip install -r requirements.txt
-.\.venv\Scripts\python manage.py migrate
-.\.venv\Scripts\python manage.py seed
-.\.venv\Scripts\python manage.py runserver
-```
+### 3. Frontend Setup
 
-Backend runs at `http://localhost:8000/`.
-
-### 3) Frontend (React)
-
-Install Node.js (LTS), then:
-
-```bash
 cd frontend
-copy .env.example .env
 npm install
 npm run dev
-```
 
-Frontend runs at `http://localhost:5173/`.
+---
 
-## Sample accounts (created by seed)
+## Hugging Face Model Setup
 
-- **admin / admin12345** (ADMIN)
-- **manager / manager12345** (MANAGER)
-- **intern / intern12345** (INTERN)
+This project does not use any Hugging Face models. The chat functionality is implemented using standard backend logic and database storage.
 
-## API endpoints (high level)
+---
 
-- **Auth**
-  - `POST /api/auth/register/`
-  - `POST /api/auth/login/` (JWT includes `role`)
-  - `POST /api/auth/refresh/`
-  - `GET /api/auth/me/`
-  - `GET/POST/PATCH/DELETE /api/auth/users/` (Admin only)
-- **Tasks**
-  - `GET/POST /api/tasks/`
-  - `GET/PATCH/DELETE /api/tasks/<id>/`
-  - `GET /api/tasks/progress/`
-  - Query params: `q`, `status`, `deadline_before=YYYY-MM-DD`, `deadline_after=YYYY-MM-DD`, `due_today=1`, `overdue=1`
-- **Chatbot**
-  - `POST /api/chat/message/`
-  - `GET /api/chat/history/`
-  - `GET /api/chat/history/pdf/` (downloads PDF)
+## Screenshots
 
-## RBAC rules (enforced in backend)
+(Add screenshots here: login, dashboard, task management, chat system)
 
-- **Admin**: full access (users, all tasks, chatbot)
-- **Manager**: create tasks, assign tasks, view team tasks
-- **Intern**: can only see assigned tasks and can only update **status**
+---
 
-## Chatbot commands
+## Conclusion
 
-- `add task <task name>` (Admin/Manager only)
-- `show tasks`
-- `show pending tasks`
-- `tasks due today`
-- `help`
-
-=======
-# TaskPilot
-TaskPilot is a Django-based project management web application that enables teams to manage tasks, assign roles, and communicate efficiently with features like chat, task tracking, and role-based access.
->>>>>>> ec83826ae108a870181f052ffb91b23b8e652a00
+TaskPilot improves team productivity by combining task management and communication into a single platform.
