@@ -89,7 +89,6 @@ admin dashboard
 
 
 
-(Add screenshots here: login, dashboard, task management, chat system)
 
 ---
 
